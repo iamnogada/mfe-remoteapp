@@ -1,0 +1,354 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Shopping"
+    },
+    {
+      "id": 2,
+      "name": "Leisure"
+    },
+    {
+      "id": 3,
+      "name": "Health"
+    },
+    {
+      "id": 4,
+      "name": "Household"
+    },
+    {
+      "id": 5,
+      "name": "Work"
+    },
+    {
+      "id": 6,
+      "name": "Other"
+    }
+  ],
+  "todos": [
+    {
+      "id": 1,
+      "todo": "Nam ultrices, libero non mattis pulvinar, nulla ped",
+      "categoryId": 6,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "todo": "Fusce consequat. Nulla nisl. Nunc nisl.",
+      "categoryId": 4,
+      "completed": true
+    },
+    {
+      "id": 3,
+      "todo": "Nullam sit amet turpis elementum ligula vehicula co",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 4,
+      "todo": "Mauris enim leo, rhoncus sed, vestibulum sit amet, ",
+      "categoryId": 4,
+      "completed": true
+    },
+    {
+      "id": 5,
+      "todo": "Aliquam quis turpis eget elit sodales scelerisque. ",
+      "categoryId": 3,
+      "completed": false
+    },
+    {
+      "id": 6,
+      "todo": "Vestibulum ac est lacinia nisi venenatis tristique.",
+      "categoryId": 2,
+      "completed": true
+    },
+    {
+      "id": 7,
+      "todo": "Phasellus sit amet erat. Nulla tempus. Vivamus in f",
+      "categoryId": 1,
+      "completed": true
+    },
+    {
+      "id": 8,
+      "todo": "Aenean fermentum. Donec ut mauris eget massa tempor",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 9,
+      "todo": "Vestibulum ac est lacinia nisi venenatis tristique.",
+      "categoryId": 5,
+      "completed": true
+    },
+    {
+      "id": 10,
+      "todo": "Proin interdum mauris non ligula pellentesque ultri",
+      "categoryId": 5,
+      "completed": true
+    },
+    {
+      "id": 11,
+      "todo": "Maecenas ut massa quis augue luctus tincidunt. Null",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 12,
+      "todo": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis biben",
+      "categoryId": 1,
+      "completed": true
+    },
+    {
+      "id": 13,
+      "todo": "Phasellus in felis. Donec semper sapien a libero. N",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 14,
+      "todo": "Maecenas tristique, est et tempus semper, est quam ",
+      "categoryId": 4,
+      "completed": false
+    },
+    {
+      "id": 15,
+      "todo": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis biben",
+      "categoryId": 5,
+      "completed": true
+    },
+    {
+      "id": 16,
+      "todo": "In quis justo. Maecenas rhoncus aliquam lacus. Morb",
+      "categoryId": 3,
+      "completed": true
+    },
+    {
+      "id": 17,
+      "todo": "Aliquam quis turpis eget elit sodales scelerisque. ",
+      "categoryId": 3,
+      "completed": false
+    },
+    {
+      "id": 18,
+      "todo": "Sed ante. Vivamus tortor. Duis mattis egestas metus",
+      "categoryId": 3,
+      "completed": false
+    },
+    {
+      "id": 19,
+      "todo": "In hac habitasse platea dictumst. Morbi vestibulum,",
+      "categoryId": 2,
+      "completed": false
+    },
+    {
+      "id": 20,
+      "todo": "Cum sociis natoque penatibus et magnis dis parturie",
+      "categoryId": 4,
+      "completed": true
+    },
+    {
+      "id": 21,
+      "todo": "Curabitur gravida nisi at nibh. In hac habitasse pl",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 22,
+      "todo": "Sed ante. Vivamus tortor. Duis mattis egestas metus",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 23,
+      "todo": "Curabitur gravida nisi at nibh. In hac habitasse pl",
+      "categoryId": 1,
+      "completed": true
+    },
+    {
+      "id": 24,
+      "todo": "Curabitur in libero ut massa volutpat convallis. Mo",
+      "categoryId": 3,
+      "completed": true
+    },
+    {
+      "id": 25,
+      "todo": "Duis bibendum. Morbi non quam nec dui luctus rutrum",
+      "categoryId": 4,
+      "completed": true
+    },
+    {
+      "id": 26,
+      "todo": "Duis bibendum. Morbi non quam nec dui luctus rutrum",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 27,
+      "todo": "Fusce posuere felis sed lacus. Morbi sem mauris, la",
+      "categoryId": 6,
+      "completed": false
+    },
+    {
+      "id": 28,
+      "todo": "Duis bibendum. Morbi non quam nec dui luctus rutrum",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 29,
+      "todo": "In quis justo. Maecenas rhoncus aliquam lacus. Morb",
+      "categoryId": 5,
+      "completed": true
+    },
+    {
+      "id": 30,
+      "todo": "Etiam vel augue. Vestibulum rutrum rutrum neque. Ae",
+      "categoryId": 3,
+      "completed": false
+    },
+    {
+      "id": 31,
+      "todo": "Proin eu mi. Nulla ac enim. In tempor, turpis nec e",
+      "categoryId": 2,
+      "completed": false
+    },
+    {
+      "id": 32,
+      "todo": "Aenean lectus. Pellentesque eget nunc. Donec quis o",
+      "categoryId": 1,
+      "completed": true
+    },
+    {
+      "id": 33,
+      "todo": "Quisque id justo sit amet sapien dignissim vestibul",
+      "categoryId": 6,
+      "completed": false
+    },
+    {
+      "id": 34,
+      "todo": "Lorem ipsum dolor sit amet, consectetuer adipiscing",
+      "categoryId": 4,
+      "completed": true
+    },
+    {
+      "id": 35,
+      "todo": "Cras non velit nec nisi vulputate nonummy. Maecenas",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 36,
+      "todo": "Duis bibendum. Morbi non quam nec dui luctus rutrum",
+      "categoryId": 3,
+      "completed": false
+    },
+    {
+      "id": 37,
+      "todo": "Nam ultrices, libero non mattis pulvinar, nulla ped",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 38,
+      "todo": "Duis consequat dui nec nisi volutpat eleifend. Done",
+      "categoryId": 1,
+      "completed": true
+    },
+    {
+      "id": 39,
+      "todo": "Cras mi pede, malesuada in, imperdiet et, commodo v",
+      "categoryId": 2,
+      "completed": false
+    },
+    {
+      "id": 40,
+      "todo": "Etiam vel augue. Vestibulum rutrum rutrum neque. Ae",
+      "categoryId": 2,
+      "completed": false
+    },
+    {
+      "id": 41,
+      "todo": "Maecenas leo odio, condimentum id, luctus nec, mole",
+      "categoryId": 6,
+      "completed": true
+    },
+    {
+      "id": 42,
+      "todo": "In hac habitasse platea dictumst. Morbi vestibulum,",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 43,
+      "todo": "Phasellus in felis. Donec semper sapien a libero. N",
+      "categoryId": 3,
+      "completed": false
+    },
+    {
+      "id": 44,
+      "todo": "Proin interdum mauris non ligula pellentesque ultri",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 45,
+      "todo": "Duis bibendum. Morbi non quam nec dui luctus rutrum",
+      "categoryId": 6,
+      "completed": false
+    },
+    {
+      "id": 46,
+      "todo": "Proin leo odio, porttitor id, consequat in, consequ",
+      "categoryId": 2,
+      "completed": true
+    },
+    {
+      "id": 47,
+      "todo": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus",
+      "categoryId": 2,
+      "completed": true
+    },
+    {
+      "id": 48,
+      "todo": "Curabitur gravida nisi at nibh. In hac habitasse pl",
+      "categoryId": 4,
+      "completed": false
+    },
+    {
+      "id": 49,
+      "todo": "Vestibulum ac est lacinia nisi venenatis tristique.",
+      "categoryId": 5,
+      "completed": false
+    },
+    {
+      "id": 50,
+      "todo": "Maecenas tristique, est et tempus semper, est quam ",
+      "categoryId": 5,
+      "completed": true
+    },
+    {
+      "id": 51,
+      "todo": "hello",
+      "categoryId": "1",
+      "completed": false
+    },
+    {
+      "id": 52,
+      "todo": "go shop with my son",
+      "categoryId": "1",
+      "completed": false
+    },
+    {
+      "id": 53,
+      "todo": "play with my sons",
+      "categoryId": "4",
+      "completed": false
+    },
+    {
+      "id": 54,
+      "todo": "switch play",
+      "categoryId": "6",
+      "completed": false
+    }
+  ]
+}

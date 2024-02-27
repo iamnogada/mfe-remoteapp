@@ -1,0 +1,11 @@
+{% extends "layout/page.html" -%}
+{% block content -%}
+<h1>Index!</h1>
+<p class="important">Welcome to my awesome homepage.</p>
+<h1>Items</h1>
+<ul>
+  {% for item in items -%}
+  <li>{{item.todo}}</li>
+  {% endfor -%}
+</ul>
+{% endblock -%}
