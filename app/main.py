@@ -41,7 +41,7 @@ app.mount(f"/assets", StaticFiles(directory="public/assets"), name="assets")
 app.mount(f"/js", StaticFiles(directory="public/js"), name="js")
 app.mount(f"/css", StaticFiles(directory="public/css"), name="css")
 
-templates = Jinja2Templates(directory=f"views")
+templates = Jinja2Templates(directory=f"app/routers")
 
 @app.middleware("http")
 async def check_hx_header(request: Request, call_next):
@@ -54,7 +54,6 @@ async def check_hx_header(request: Request, call_next):
     process_time = time.time() - start_time
     response.headers["X-Process-Time"] = str(process_time)
 
-logger.warn("hello hastapi")
 load_routers(app)
 
 @app.get("/")
