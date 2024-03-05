@@ -19,23 +19,30 @@
     >
       Get Data
     </button>
-    <table class="table-auto w-2/3" id="uc2"></table>
-    <template id="uc2-template">
+    <table class="table-auto w-2/3" >
       <thead class="uppercase bg-gray-400">
         <th>Title</th>
         <th>Content</th>
         <th>datetime</th>
         <th>writer</th>
       </thead>
-      {% raw -%} {% for item in data %}
-      <tr class="{{ 'bg-blue-200' if loop.index % 2 == 0 else 'bg-gray-200' }}">
-        <td>{{item.title}}</td>
-        <td>{{item.contents}}</td>
-        <td>{{item.datetime}}</td>
-        <td>{{item.writer}}</td>
-      </tr>
-      {% endfor %} {% endraw -%}
-    </template>
+      <tbody id="uc2">
+        <tr>
+          <td colspan="3">No Data</td>
+        </tr>
+        <template id="uc2-template">
+          {% raw -%} {% for item in data %}
+          <tr class="{{ 'bg-blue-200' if loop.index % 2 == 0 else 'bg-gray-200' }}">
+            <td>{{item.title}}</td>
+            <td>{{item.contents}}</td>
+            <td>{{item.datetime}}</td>
+            <td>{{item.writer}}</td>
+          </tr>
+          {% endfor %} {% endraw -%}
+        </template>
+      </tbody>
+    </table>
+    
   </div>
 </section>
 <section class="border p-4" x-init x-data="{cluster:'',namespace:''}">
