@@ -1,14 +1,14 @@
-from .app_log import Logger
+from .app_log import logger
 from importlib import import_module
 import os
 from fastapi import APIRouter
-logger = Logger()
+
+# logger = Logger(__name__)
+
 
 def RouterLoader(app, root="app/routers"):
-    logger.debug(f"===Loading routers from {root}")
     for root, dirs, files in os.walk(root):
         for file in files:
-            logger.warn(f'Loading file {file}')
             if file.endswith(
                 ".py"
             ):  # Adjust this if your router files are named differently

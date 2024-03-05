@@ -1,50 +1,81 @@
 {% extends "_layouts/page.html" -%} {% block content -%}
-
-<section>
-<div>
-  <a
-    href="#"
-    hx-get="board"
-    hx-trigger="click"
-    hx-target="#board"
-    hx-swap="outerHTML"
-    >Board list(server side rendering)</a
-  >
-  <div id="board"></div>
-</div>
+<h1>Use Cases : Html + Alpinejs</h1>
+<section class="border p-4">
+  <h3>UC1</h3>
+  <div hx-get="usecase/uc1" hx-trigger="load" hx-swap="innerHTML"></div>
 </section>
-
-<section>
-<div hx-ext="client-side-templates">
-  <a
-    href="#"
-    hx-get="event"
-    hx-swap="innerHTML"
-    hx-trigger="click"
-    hx-target="#event-data"
-    handlebars-template="event-template"
-    >Event list(client side rendering with json)</a
-  >
-  <table id="event-data"></table>
-  <template id="event-template">
-      <thead>
+<section class="border p-4">
+  <h3>UC2</h3>
+  <div>
+    <p>Client side rendering with json + htmx + template tag</p>
+    <br />
+    <button
+      hx-ext="client-side-templates"
+      hx-get="usecase/uc2"
+      hx-target="#uc2"
+      hx-swap="innerHTML"
+      hx-trigger="click"
+      nunjucks-template="uc2-template"
+    >
+      Get Data
+    </button>
+    <table class="table-auto w-2/3" id="uc2"></table>
+    <template id="uc2-template">
+      <thead class="uppercase bg-gray-400">
         <th>Title</th>
         <th>Content</th>
         <th>datetime</th>
         <th>writer</th>
       </thead>
-        {% raw -%} {{#each data}}
-        <tr>
-          <td>{{title}}</td>
-          <td>{{contents}}</td>
-          <td>{{datetime}}</td>
-          <td>{{writer}}</td>
-        </tr>
-        {{/each}} {% endraw -%}
+      {% raw -%} {% for item in data %}
+      <tr class="{{ 'bg-blue-200' if loop.index % 2 == 0 else 'bg-gray-200' }}">
+        <td>{{item.title}}</td>
+        <td>{{item.contents}}</td>
+        <td>{{item.datetime}}</td>
+        <td>{{item.writer}}</td>
+      </tr>
+      {% endfor %} {% endraw -%}
     </template>
-</div>
+  </div>
 </section>
-<section>
-  <div></div>
+<section class="border p-4" x-init x-data="{cluster:'',namespace:''}">
+  <h3>UC3: cascaded event and binding data with alpinejs</h3>
+  <span x-text="namespace"></span> of <span x-text="cluster"></span>
+  <div class="flex">
+    <div hx-get="usecase/uc3" hx-trigger="load" hx-swap="innerHTML"></div>
+    <div>
+      <select name="namespace" id="namespace" @change="namespace = $event.target.options[$event.target.selectedIndex].text">
+        <option value="all">All</option>
+      </select>
+      <template id="namespace-template">
+        <option value="all">All</option>
+        {% raw -%}{% for item in namespaces %}
+        <option value="{{item.id}}">{{item.name}}</option>
+        {% endfor %}{% endraw -%}
+      </template>
+    </div>
+  </div>
 </section>
+<section class="border p-4">
+  <h3>UC4: After transaction, publilsh event, subscription event</h3>
+  <div 
+    hx-get="usecase/uc4"
+    hx-trigger="load"
+    hx-swap="outerHTML"
+  ></div>
+  <div class="flex gap-4 mt-8">
+    <div
+    hx-get="usecase/uc4/section1"
+    hx-trigger="load, data-deleted from:window"
+    hx-swap="innerHTML"
+    class="bg-blue-300 w-1/2"
+    ></div>
+    <div
+    hx-get="usecase/uc4/section2"
+    hx-trigger="load, data-deleted from:window"
+    hx-swap="innerHTML"
+    class="bg-green-300 w-1/2"
+    ></div>
+  </div>
+</section>  
 {% endblock -%}

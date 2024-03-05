@@ -1,0 +1,15 @@
+{% extends "_layouts/page.html" -%} {% block content -%}
+<div x-data="{counter:0}">
+  <span x-text="counter"></span>
+  <button x-on:click="counter++">+</button>
+  <button x-on:click="counter--">-</button>
+</div>
+<div>
+  <div x-init>
+    <button x-on:click="$dispatch('update', { foo: 'bar' })">Trigger to HTMX</button>
+  </div>
+  <h3>Current Time is</h3>
+  <div x-init id="areA" x-on:update.window="console.log('event !!')">area a</div>
+  <div hx-get="counter/timer" hx-trigger="update from:window" hx-swap="innerHTML">None</div>
+</div>
+{% endblock -%}

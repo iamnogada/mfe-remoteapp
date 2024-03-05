@@ -1,0 +1,32 @@
+{% extends "_layouts/page.html" -%}
+{% block content -%}
+<h2>{{datetime}}</h2>
+<div hx-ext="client-side-templates">
+  <h3>Clusters</h3>
+  <select name="clusters" id="clusters"
+    hx-get="resource/namespaces"
+    hx-trigger="change update from:window"
+    hx-target="#namespaces"
+    handlebars-template="namespace-template"
+  >
+    <option value="all">All Clusters</option>
+    {% for item in clusters -%}
+    <option value="{{item.id}}">{{item.name}}</option>
+    {% endfor -%}
+  </select>
+</div>
+<div>
+  <h3>Namespaces</h3>
+  <select name="namespaces" id="namespaces"
+  >
+  </select>
+  <template id="namespace-template">
+    <option value="all">All</option>
+    {% raw -%} {{#each namespaces}}
+    <option value="{{id}}">{{name}}</option>
+    {{/each}} {% endraw -%}
+  </template>
+</div>
+{% endblock -%}
+
+

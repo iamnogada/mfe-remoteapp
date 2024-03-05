@@ -5,7 +5,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from app.utils import Logger, RouterLoader, Template
+from app.utils import logger, RouterLoader, Template
 from app.middlewares import MFEMiddleware
 
 
@@ -14,7 +14,7 @@ from app.middlewares import MFEMiddleware
 #  Context path for the application
 APP_NAME="/mfe"
 
-app = FastAPI(root_path=f"{APP_NAME}",title=f"{APP_NAME}", version="0.1.0")
+app = FastAPI(root_path=f"{APP_NAME}",title=f"{APP_NAME}", version="0.1.0",debug=True)
 
 app.mount(f"/assets", StaticFiles(directory="public/assets"), name="assets")
 app.mount(f"/js", StaticFiles(directory="public/js"), name="js")

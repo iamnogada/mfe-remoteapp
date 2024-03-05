@@ -1,0 +1,24 @@
+{% extends "_layouts/page.html" -%} {% block content -%}
+<table class="w-2/3 table-auto">
+  <thead class="bg-gray-200">
+    <th>ID</th>
+    <th>Cluster</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    {% for item in clusters -%}
+    <tr id="dataitem-{{item.id}}">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td><button 
+        hx-delete="usecase/uc4/section/1" 
+        hx-target="#dataitem-{{item.id}}"
+        hx-ext="chain-event"
+        hx-swap="outerHTML"
+        hx-publish="data-deleted"
+        >delete</button></td>
+    </tr>
+    {% endfor -%}
+  </tbody>
+</table>
+{% endblock -%}

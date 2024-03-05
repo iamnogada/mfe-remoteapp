@@ -1,0 +1,61 @@
+{% extends "_layouts/page.html" -%} {% block content -%}
+
+<section>
+<div>
+  <a
+    href="#"
+    hx-get="board"
+    hx-trigger="click"
+    hx-target="#board"
+    hx-swap="outerHTML"
+    >Board list(server side rendering)</a
+  >
+  <div id="board"></div>
+</div>
+</section>
+
+<section>
+<div hx-ext="client-side-templates">
+  <a
+    href="#"
+    hx-get="event"
+    hx-swap="innerHTML"
+    hx-trigger="click"
+    hx-target="#event-data"
+    handlebars-template="event-template"
+    >Event list(client side rendering with json)</a
+  >
+  <table id="event-data"></table>
+  <template id="event-template">
+      <thead>
+        <th>Title</th>
+        <th>Content</th>
+        <th>datetime</th>
+        <th>writer</th>
+      </thead>
+        {% raw -%} {{#each data}}
+        <tr>
+          <td>{{title}}</td>
+          <td>{{contents}}</td>
+          <td>{{datetime}}</td>
+          <td>{{writer}}</td>
+        </tr>
+        {{/each}} {% endraw -%}
+    </template>
+</div>
+</section>
+<section>
+  <div
+    hx-get="counter"
+    hx-trigger="load"
+    hx-swap="innerHTML"
+  ></div>
+</section>
+
+<section>
+  <div
+    hx-get="resource/clusters"
+    hx-trigger="load"
+  ></div>
+</section>
+{% endblock -%}

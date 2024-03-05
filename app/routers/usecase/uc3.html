@@ -1,0 +1,14 @@
+{% extends "_layouts/page.html" -%} {% block content -%}
+<select name="cluster" id="cluster"
+    @change="cluster = $event.target.options[$event.target.selectedIndex].text"
+    hx-ext="client-side-templates"
+    hx-get="usecase/uc3/namespace"
+    hx-target="#namespace"
+    hx-swap="innerHTML"
+    nunjucks-template="namespace-template">
+  <option value="all">All</option>
+  {% for item in clusters %}
+  <option value="{{item.id}}">{{item.name}}</option>
+  {% endfor %}
+</select>
+{% endblock -%}

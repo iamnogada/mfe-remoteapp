@@ -1,13 +1,12 @@
 from fastapi import APIRouter, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import JSONResponse
 from app.utils import Template, logger
-
+from datetime import datetime
 
 router = APIRouter()
 
 template = Template()
 # logging = Logger(__name__)
-
 data = [
     {
         "title": "Post Title 1",
@@ -42,7 +41,8 @@ data = [
 ]
 
 
-@router.get('/', response_class=HTMLResponse)
-async def search_board(request: Request):
-    logger.info("Hello from the board search_board router!")
-    return template.TemplateResponse(request = request, name="board/list.html",context={'data':data})
+@router.get('/uc2', response_class=JSONResponse)
+async def search_event(request: Request):
+    now = datetime.now()
+    formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    return {"datetime":formatted_time, 'data':data}
