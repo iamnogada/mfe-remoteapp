@@ -1,0 +1,19 @@
+{% extends "_layouts/page.html" -%}
+{% block content -%}
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>datetime</th>
+    <th>writer</th>
+  </tr>
+  {% for item in data -%}
+  <tr>
+    <td>{{item.title}}</td>
+    <td>{{item.contents}}</td>
+    <td>{{item.datetime}}</td>
+    <td>{{item.writer}}</td>
+  </tr>
+  {% endfor -%}
+</table>
+{% endblock -%}

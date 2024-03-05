@@ -1,0 +1,28 @@
+{% if not request.state.hx_request -%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{request.state.root_path}}/assets/css/fontawesome.all.css" />
+    <title>Page Service</title>
+    <script src="{{request.state.root_path}}/assets/js/htmx.min.js"></script>
+    <script src="{{request.state.root_path}}/assets/js/handlebars.js" ></script>
+    <script src="{{request.state.root_path}}/assets/js/nunjucks.js" ></script>
+    <script src="{{request.state.root_path}}/assets/js/json-enc.js" ></script>
+    <script >
+      htmx.logAll();
+    </script>
+    <script src="{{request.state.root_path}}/assets/js/client-side-templates.js" ></script>
+    <script src="{{request.state.root_path}}/assets/js/htmx-chain-event.js" ></script>
+    <script defer src="{{request.state.root_path}}/assets/js/alpinejs.3.x.min.js" ></script>
+  </head>
+  <body>
+{% endif -%}
+{% block content %}{% endblock %}
+{% if not request.state.hx_request -%}
+  </body>
+</html>
+{% endif -%}
+
+

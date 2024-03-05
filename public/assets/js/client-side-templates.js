@@ -34,6 +34,7 @@ htmx.defineExtension('client-side-templates', {
             if (renderTemplate) {
                 return renderTemplate(data);
             } else {
+                console.log("Unknown mustache template: " + templateId);
                 throw "Unknown handlebars template: " + templateId;
             }
         }

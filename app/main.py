@@ -1,61 +1,34 @@
-import os
+
 from fastapi import FastAPI, APIRouter,Request, Response, Path
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from importlib import import_module
-import logging
-from app.utils import getlogger
-import time
+from starlette.middleware.base import BaseHTTPMiddleware
 
-# logging.basicConfig(
-#     level=logging.INFO,
-#     format="[%(asctime)s] [%(levelname)s] - %(name)s : %(message)s",
-#     datefmt="%Y-%m-%d %H:%M:%S",
-# )
-# logger = logging.getLogger(__name__)
-logger = getlogger(__name__)
-app = FastAPI(title="Remote App", version="0.1.0")
+from app.utils import Logger, RouterLoader, Template
+from app.middlewares import MFEMiddleware
 
 
-def load_routers(app, root="app/routers"):
-    logger.debug(f"===Loading routers from {root}")
-    for root, dirs, files in os.walk(root):
-        for file in files:
-            # logger.warn(f'Loading file {file}')
-            if file.endswith(
-                ".py"
-            ):  # Adjust this if your router files are named differently
-                module_path = (
-                    os.path.join(root, file).replace("/", ".").replace("\\", ".")[:-3]
-                )
-                mod = import_module(module_path)
-                if hasattr(mod, "router") and isinstance(mod.router, APIRouter):
-                    prefix = os.path.relpath(root, "app/routers").replace(os.sep, "/")
-                    app.include_router(mod.router, prefix=f"/{prefix}", tags=[prefix])
-                else:
-                    logger.info(f"Module {module_path} does not have a FastAPI router.")
-                logger.info(f"Loading router {module_path} with prefix {prefix}")
+
+
+#  Context path for the application
+APP_NAME="/mfe"
+
+app = FastAPI(root_path=f"{APP_NAME}",title=f"{APP_NAME}", version="0.1.0")
 
 app.mount(f"/assets", StaticFiles(directory="public/assets"), name="assets")
 app.mount(f"/js", StaticFiles(directory="public/js"), name="js")
 app.mount(f"/css", StaticFiles(directory="public/css"), name="css")
+app.mount(f"/test", StaticFiles(directory="public/css"), name="html")
 
-templates = Jinja2Templates(directory=f"app/routers")
+RouterLoader(app)
+# If Reqeust form HTMX, then response only block html, othwerwise return full html including header
+# For HTMX, set request.state.hx_request = True so Jinja2 conditionally add css and js files
+mfe_middleware = MFEMiddleware(app=app, root_path=f"{APP_NAME}")
+app.add_middleware(BaseHTTPMiddleware, dispatch=mfe_middleware.dispatch)
 
-@app.middleware("http")
-async def check_hx_header(request: Request, call_next):
-    start_time = time.time()
-    if "Hx-Request" in request.headers:
-        # add hx_request to state so JINJA2 use this to add css and js files
-        request.state.hx_request = True
-    request.state.root_path = APP_NAME
-    response = await call_next(request)
-    process_time = time.time() - start_time
-    response.headers["X-Process-Time"] = str(process_time)
+templates = Template()
 
-load_routers(app)
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+@app.get("/", response_class=HTMLResponse)
+def read_root(request: Request):
+    return templates.TemplateResponse(request = request, name="main.html")
