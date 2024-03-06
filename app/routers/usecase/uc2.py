@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
-from app.utils import Template, logger
+from app.utils import Template
 from datetime import datetime
 
 router = APIRouter()

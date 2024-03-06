@@ -1,8 +1,11 @@
 {% extends "_layouts/page.html" -%} {% block content -%}
-<h1>Use Cases : Html + Alpinejs</h1>
+<h1>Use Cases : Htmx + Alpinejs</h1>
 <section class="border p-4">
   <h3>UC1</h3>
-  <div hx-get="usecase/uc1" hx-trigger="load" hx-swap="innerHTML"></div>
+  <div hx-get="usecase/uc1" hx-trigger="load" hx-swap="innerHTML">
+    <!-- right here inserted -->
+    <!-- this is fetch html from server -->
+  </div>
 </section>
 <section class="border p-4">
   <h3>UC2</h3>
@@ -12,9 +15,9 @@
     <button
       hx-ext="client-side-templates"
       hx-get="usecase/uc2"
+      hx-trigger="click"
       hx-target="#uc2"
       hx-swap="innerHTML"
-      hx-trigger="click"
       nunjucks-template="uc2-template"
     >
       Get Data
@@ -48,6 +51,7 @@
 <section class="border p-4" x-init x-data="{cluster:'',namespace:''}">
   <h3>UC3: cascaded event and binding data with alpinejs</h3>
   <span x-text="namespace"></span> of <span x-text="cluster"></span>
+  
   <div class="flex">
     <div hx-get="usecase/uc3" hx-trigger="load" hx-swap="innerHTML"></div>
     <div>
